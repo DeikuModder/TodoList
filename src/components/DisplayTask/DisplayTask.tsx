@@ -3,7 +3,7 @@ import '../../styles/components/_displaytask.scss'
 
 const DisplayTask = () => {
   const useTaskValue = useTasksData();
-  const {taskArray} = useTaskValue()
+  const {taskArray} = useTaskValue;
 
   return (
     <ul className="taskDisplayer">

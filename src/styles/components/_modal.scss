@@ -1,0 +1,42 @@
+@import '../abstracts/mixins';
+
+#modalScreen {
+    width: 100%;
+    height: 100vh;
+    @include flexBox;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#modalContent {
+    background-color: white;
+    border-radius: 16px;
+    width: 80%;
+    height: 60vh;
+}
+
+#btnContainer {
+    width: 100%;
+    height: 8%;
+    @include flexBox(flex-end, center, row)
+}
+
+.closeModalBtn {
+    border-radius: 16px;
+}
+
+#modalMainForm {
+    width: 100%;
+    height: calc(100% - 8%);
+    padding: 2vh;
+
+    form {
+        @include flexBox(_);
+        text-align: center;
+
+        #checkBoxesContainer {
+            @include flexBox();
+        }
+    }
+}

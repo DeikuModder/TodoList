@@ -1,0 +1,19 @@
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+body {
+    background-color: rgb(247, 244, 246);
+}
+
+header {
+    background-color: rgb(201, 24, 92);
+    height: $headerHeight;
+    @include flexBox;
+}
+
+#root {
+    @include flexBox(_);
+    height: calc(100vh - $headerHeight);
+    padding: 4vh;
+}
+

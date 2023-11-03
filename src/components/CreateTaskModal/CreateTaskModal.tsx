@@ -10,7 +10,8 @@ type ContentProps = {
 const ModalContent: React.FC<ContentProps> = ({ onClose }) => {
   const [title, setTitle] = useState('')
   const [priority, setPriority] = useState('')
-  const {taskArray, setTaskArray} = useTasksData();
+  const useTaskValue = useTasksData();
+  const {taskArray, setTaskArray} = useTaskValue()
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()

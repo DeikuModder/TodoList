@@ -2,7 +2,8 @@ import useTasksData from "../../providers/useTaskDataHook"
 import '../../styles/components/_displaytask.scss'
 
 const DisplayTask = () => {
-  const {taskArray} = useTasksData();
+  const useTaskValue = useTasksData();
+  const {taskArray} = useTaskValue()
 
   return (
     <ul className="taskDisplayer">

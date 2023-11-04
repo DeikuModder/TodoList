@@ -57,7 +57,7 @@ const ModalContent: React.FC<ContentProps> = ({ onClose }) => {
                 name='priority' 
                 required
               >
-
+                <option defaultValue='Select priortiy'>Select priortiy</option>
                 <option value='Highly Important'>Highly Important</option>
                 <option value='Important'>Important</option>
                 <option value='Normal'>Normal</option>

@@ -15,6 +15,16 @@
     padding: 2vh;
     @include flexBox(center, center, row);
     margin-bottom: 2vh;
+
+}
+
+.taskChecked {
+    background-color: rgb(17, 185, 82);
+    opacity: .7;
+
+    p {
+        text-decoration: line-through;
+    }
 }
 
 .leftContainer, .rightContainer {

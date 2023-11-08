@@ -33,11 +33,17 @@
     padding: 2vh;
 
     form {
-        @include flexBox(_);
+        @include flexBox(space-between, center);
+        height: 100%;
         text-align: center;
 
-        #checkBoxesContainer {
-            @include flexBox();
+        input {
+            margin-bottom: 2vh;
         }
+
+        .submitBtn {
+            @include buttons(12vh, 4vh, 2vh)
+        }
+
     }
 }

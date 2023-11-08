@@ -1,43 +1,37 @@
-import useTasksData from "../../providers/useTaskDataHook"
+import useTasksData from "../../hooks/useTaskData"
+import SimpleTasks from "../../classes/types";
+import { Suspense, lazy } from "react";
+const SimpleTask = lazy(() => import('../Tasks/SimpleTask'))
 import '../../styles/components/_displaytask.scss'
 
 const DisplayTask = () => {
   const useTaskValue = useTasksData();
-  const {taskArray} = useTaskValue;
+  const {taskArray, setTaskArray} = useTaskValue;
 
-  const handleCheckbox = (id: string) => {
-    const checkBox: HTMLInputElement = document.getElementById(id) as HTMLInputElement
-    checkBox?.classList.toggle('taskChecked', checkBox.checked)
+  const handleCheckbox = (index: number) => {
+    const taskArrayWithChecked: SimpleTasks[] = [...taskArray]
+    taskArrayWithChecked[index].isChecked = !taskArrayWithChecked[index].isChecked
+
+    setTaskArray([
+      ...taskArrayWithChecked
+    ])
+  }
+
+  const handleDelete = (index: number) => {
+    const filteredArr: SimpleTasks[] = [...taskArray]
+
+    filteredArr.splice(index, 1)
+
+    setTaskArray([
+      ...filteredArr
+    ])
   }
 
   return (
     <ul className="taskDisplayer">
-     {
-      taskArray.length > 0 && taskArray.map((task, index) => {
-        return (
-          <li key={task.title} className="tasks" id={`task${index}`}>
-            <div className="leftContainer">
-              <p>{task.title}</p>
-              <p>{task.priority}</p>
-            </div>
-
-            <div className="rightContainer">
-              <label htmlFor={`checkTask ${index}`}>
-                <input 
-                  type="checkbox" 
-                  id={`checkTask ${index}`}
-                  onChange={() => {
-                    handleCheckbox(`task${index}`)
-                  }}
-                />
-              </label>
-        
-              <button>Delete</button>
-            </div>
-          </li>
-        )
-      })
-     }
+      <Suspense>
+        <SimpleTask handleCheckbox={handleCheckbox} handleDelete={handleDelete}/>
+      </Suspense>
     </ul>
   )
 }

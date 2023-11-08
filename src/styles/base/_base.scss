@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: rgb(201, 24, 92);
+    background-color: #2c2c30;
     height: $headerHeight;
     @include flexBox;
 }

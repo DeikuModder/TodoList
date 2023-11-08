@@ -4,3 +4,13 @@
     justify-content: $justifyContent;
     align-items: $alignItems;
 }
+
+@mixin buttons($width, $height, $fontSize){
+    background-color: darkorange;
+    width: $width;
+    height: $height;
+    font-size: $fontSize;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2vh;
+}

@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import SimpleTasks from '../classes/types'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export const TaskContext = React.createContext({} as ReturnType<typeof useTaskValue>) //little cheat, since i know all my components will be inside this context
 
@@ -7,8 +8,13 @@ interface ProviderProps {
     children: JSX.Element | JSX.Element[]
 }
 
-const useTaskValue = () => {
-  const [taskArray, setTaskArray] = useState<SimpleTasks[]>([])
+interface TaskProps {
+  taskArray: SimpleTasks[],
+  setTaskArray: React.Dispatch<React.SetStateAction<SimpleTasks[]>>
+}
+
+const useTaskValue = (): TaskProps => {
+  const [taskArray, setTaskArray] = useLocalStorage('tasks', [])
 
   return {
     taskArray,

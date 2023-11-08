@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'Roboto-Slab';
+    src: url('../../assets/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf');
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     text-decoration: none;
     list-style: none;
+    font-family: 'Roboto-Slab';
 }
 
 input {

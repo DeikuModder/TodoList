@@ -27,6 +27,7 @@ const ModalContent: React.FC<ContentProps> = ({ onClose }) => {
     return (
       <div id='modalScreen'>
         <div id='modalContent'>
+
           <div id='btnContainer'>
             <button
               className='closeBtn'
@@ -38,34 +39,53 @@ const ModalContent: React.FC<ContentProps> = ({ onClose }) => {
   
           <div id='modalMainForm'>
             <form onSubmit={handleSubmit} name="newTaskData">
-              <div>
-                <label>
-                  Task title:
-                  <input 
-                    value={title}
-                    onChange={(e) => (setTitle(e.target.value))}
-                    type='text' 
-                    required
-                  />
-                </label>
+              <div className="formInputs">
+                <label htmlFor="taskTitleInput" />
+                <div className="container">
 
-                <label htmlFor='priority'>
-                  Priority:
-                  <select 
-                    value={priority}
-                    onChange={(e) => {setPriority(e.target.value)}}
-                    id='priority' 
-                    name='priority' 
-                    required
-                  >
-                    <option defaultValue=''>Select priorotiy</option>
-                    <option value='Highly Important'>Highly Important</option>
-                    <option value='Important'>Important</option>
-                    <option value='Normal'>Normal</option>
-                    <option value='Not important'>Not important</option>
+                  <div className="leftSide">
+                    <p>Title:</p>
+                  </div>
+
+                  <div className="rightSide">
+                    <input 
+                      value={title}
+                      onChange={(e) => (setTitle(e.target.value))}
+                      type='text'
+                      id="taskTitleInput" 
+                      required
+                    />
+                  </div>
+                  
+                </div>
+
+                <label htmlFor='priority' />
+                  <div className="container">
+
+                    <div className="leftSide">
+                      <p>Priority:</p>
+                    </div>
+                    
+                    <div className="rightSide">
+                      <select 
+                        value={priority}
+                        onChange={(e) => {setPriority(e.target.value)}}
+                        id='priority' 
+                        name='priority' 
+                        required
+                      >
+                        <option defaultValue=''>Select priorotiy</option>
+                        <option value='Highly Important'>Highly Important</option>
+                        <option value='Important'>Important</option>
+                        <option value='Normal'>Normal</option>
+                        <option value='Not important'>Not important</option>
   
-                  </select>
-                </label>
+                      </select>
+                    </div>
+                    
+                  </div>
+                  
+                
               </div>
                 
               <input type='submit' value='Create task' className="submitBtn"/>

@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Roboto-Slab';
-    src: url('../../assets/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf');
+    font-family: 'Inter';
+    src: url('../../assets/Inter-VariableFont_slnt\,wght.ttf');
     font-display: swap;
 }
 
@@ -10,7 +10,8 @@
     margin: 0;
     text-decoration: none;
     list-style: none;
-    font-family: 'Roboto-Slab';
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
 }
 
 input {
@@ -22,4 +23,5 @@ input {
 button {
     outline: none;
     border: none;
+    background: none;
 }

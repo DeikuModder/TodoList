@@ -1,9 +1,11 @@
 import useTasksData from "../../hooks/useTaskData"
 import '../../styles/components/_displaytask.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashRestoreAlt } from "@fortawesome/free-solid-svg-icons/faTrashRestoreAlt"
 
 type Props = {
-    handleCheckbox: (index: number) => void
-    handleDelete: (index: number) => void
+  handleCheckbox: (index: number) => void
+  handleDelete: (index: number) => void
 }
 
 const SimpleTask: React.FC<Props> = ({handleCheckbox, handleDelete}) => {
@@ -44,7 +46,9 @@ const SimpleTask: React.FC<Props> = ({handleCheckbox, handleDelete}) => {
                 />
               </label>
         
-              <button onClick={() => {handleDelete(index)}}>Delete</button>
+              <button onClick={() => {handleDelete(index)}}>
+                <FontAwesomeIcon icon={faTrashRestoreAlt}/>
+              </button>
             </div>
           </li>
         )

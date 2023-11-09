@@ -5,12 +5,19 @@
     align-items: $alignItems;
 }
 
+@mixin grayBorder(){
+    border-radius: 4px;
+    border: 1px solid #181818;
+}
+
 @mixin buttons($width, $height, $fontSize){
-    background-color: darkorange;
+    @include grayBorder();
+    background-color: #181818;
+    color: #fff;
     width: $width;
     height: $height;
     font-size: $fontSize;
-    border-radius: 12px;
     text-align: center;
     margin-bottom: 2vh;
 }
+

@@ -17,20 +17,10 @@ const DisplayTask = () => {
     ])
   }
 
-  const handleDelete = (index: number) => {
-    const filteredArr: SimpleTasks[] = [...taskArray]
-
-    filteredArr.splice(index, 1)
-
-    setTaskArray([
-      ...filteredArr
-    ])
-  }
-
   return (
     <ul className="taskDisplayer">
       <Suspense>
-        <SimpleTask handleCheckbox={handleCheckbox} handleDelete={handleDelete}/>
+        <SimpleTask handleCheckbox={handleCheckbox}/>
       </Suspense>
     </ul>
   )

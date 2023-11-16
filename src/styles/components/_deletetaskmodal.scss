@@ -1,0 +1,37 @@
+@import '../abstracts/mixins';
+
+.modalScreen {
+    left: 0;
+}
+
+.modalContent {
+    background-color: white;
+    @include grayBorder;
+    @include flexBox(space-between);
+}
+
+.deleteModal {
+    width: 60%;
+    height: 20vh;
+
+    p {
+        text-align: center;
+        margin-top: 4vh;
+    }
+}
+
+.btnContainer {
+    width: 70%;
+    height: 25%;
+}
+
+.cancelBtn {
+    width: 50%;
+    height: 100%;
+    font-size: 1rem;
+    @include grayBorder;
+}
+
+.deleteBtn {
+    @include buttons(50%, 100%, 1rem, 0);
+}

@@ -25,8 +25,8 @@ const ModalContent: React.FC<ContentProps> = ({ onClose }) => {
     }
   
     return (
-      <div id='modalScreen'>
-        <div id='modalContent'>
+      <div className='modalScreen'>
+        <div className='modalContent'>
 
           <div id='btnContainer'>
             <button

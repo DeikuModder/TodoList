@@ -48,3 +48,9 @@
     font-weight: bold;
     color: darkorange;
 }
+
+@media (min-width: 1000px){
+    .taskDisplayer {
+        width: 40%;
+    }
+}

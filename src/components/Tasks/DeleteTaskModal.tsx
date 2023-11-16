@@ -4,6 +4,7 @@ import SimpleTasks from "../../classes/types"
 import useTasksData from "../../hooks/useTaskData";
 import { useState } from "react";
 import '../../styles/components/_deletetaskmodal.scss'
+import { createPortal } from "react-dom";
 
 const DeleteTaskModal = ({ index }: {index: number}) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -13,7 +14,10 @@ const DeleteTaskModal = ({ index }: {index: number}) => {
         {
             showDeleteModal ?
             (
-                <DeleteTask index={index} onClose={setShowDeleteModal}/>
+                createPortal(
+                    <DeleteTask index={index} onClose={setShowDeleteModal}/>,
+                    document.getElementById('modal')!
+                )
             )
             :
             (
@@ -49,11 +53,7 @@ const DeleteTask: React.FC<Props> = ({ index, onClose }) => {
 
     return (
         <div className="modalScreen">
-<<<<<<< HEAD
             <div className="modalContent deleteModal">
-=======
-            <div className="modalContent">
->>>>>>> 4a1bc0488f98b724460301206e3d4d7aa34db31e
                 <p>
                     You want to delete this task permanently?
                 </p>

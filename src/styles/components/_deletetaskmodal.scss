@@ -1,43 +1,19 @@
 @import '../abstracts/mixins';
 
-.modalScreen {
-<<<<<<< HEAD
-    left: 0;
-=======
-    width: 100%;
-    height: 100vh;
-    @include flexBox;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 100;
-}
-
-@supports (backdrop-filter: blur(8px)){
-    .modalScreen {
-        background: hsl(250 100% 20% / 0.1);
-        backdrop-filter: blur(8px);
-    }
->>>>>>> 4a1bc0488f98b724460301206e3d4d7aa34db31e
-}
-
-.modalContent {
-    background-color: white;
-    @include grayBorder;
-    @include flexBox(space-between);
-<<<<<<< HEAD
-}
-
 .deleteModal {
-=======
->>>>>>> 4a1bc0488f98b724460301206e3d4d7aa34db31e
     width: 60%;
     height: 20vh;
+    @include flexBox(space-between);
 
     p {
         text-align: center;
         margin-top: 4vh;
+    }
+}
+
+@media (min-width: 1000px) {
+    .deleteModal {
+        width: 20%;
     }
 }
 

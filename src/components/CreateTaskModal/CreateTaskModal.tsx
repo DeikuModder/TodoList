@@ -1,6 +1,7 @@
 import { Suspense, lazy, useState }  from 'react'
 const ModalContent = lazy(() => import('./ModalContent'))
 import '../../styles/components/_modal.scss'
+import { createPortal } from 'react-dom'
 
 const CreateTaskModal: React.FC = () => {
   const [openModal, setOpenModal] = useState(false)
@@ -9,9 +10,12 @@ const CreateTaskModal: React.FC = () => {
     <>
      {
       openModal ? 
-        <Suspense>
-          <ModalContent onClose={() => {setOpenModal(false)}}/>
-        </Suspense>
+        createPortal(
+          <Suspense>
+            <ModalContent onClose={() => {setOpenModal(false)}}/>
+          </Suspense>,
+          document.getElementById('modal')!
+        )
         :
         <button 
           className='addTaskBtn'

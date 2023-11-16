@@ -49,7 +49,11 @@ const DeleteTask: React.FC<Props> = ({ index, onClose }) => {
 
     return (
         <div className="modalScreen">
+<<<<<<< HEAD
             <div className="modalContent deleteModal">
+=======
+            <div className="modalContent">
+>>>>>>> 4a1bc0488f98b724460301206e3d4d7aa34db31e
                 <p>
                     You want to delete this task permanently?
                 </p>

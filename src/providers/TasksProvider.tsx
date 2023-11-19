@@ -10,15 +10,20 @@ interface ProviderProps {
 
 interface TaskProps {
   taskArray: SimpleTasks[],
-  setTaskArray: React.Dispatch<React.SetStateAction<SimpleTasks[]>>
+  setTaskArray: React.Dispatch<React.SetStateAction<SimpleTasks[]>>,
+  tasksChecked: number,
+  setTasksChecked: React.Dispatch<React.SetStateAction<number>>
 }
 
 const useTaskValue = (): TaskProps => {
   const [taskArray, setTaskArray] = useLocalStorage('tasks', [])
+  const [tasksChecked, setTasksChecked] = useLocalStorage('taskChecked', 0)
 
   return {
     taskArray,
-    setTaskArray
+    setTaskArray,
+    tasksChecked,
+    setTasksChecked
   }
 }
 

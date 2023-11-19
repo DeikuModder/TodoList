@@ -1,28 +1,22 @@
-import useTasksData from "../../hooks/useTaskData"
-import SimpleTasks from "../../classes/types";
 import { Suspense, lazy } from "react";
 const SimpleTask = lazy(() => import('../Tasks/SimpleTask'))
 import '../../styles/components/_displaytask.scss'
+import useTasksData from "../../hooks/useTaskData";
 
 const DisplayTask = () => {
   const useTaskValue = useTasksData();
-  const {taskArray, setTaskArray} = useTaskValue;
-
-  const handleCheckbox = (index: number) => {
-    const taskArrayWithChecked: SimpleTasks[] = [...taskArray]
-    taskArrayWithChecked[index].isChecked = !taskArrayWithChecked[index].isChecked
-
-    setTaskArray([
-      ...taskArrayWithChecked
-    ])
-  }
+  const {taskArray, tasksChecked} = useTaskValue;
 
   return (
-    <ul className="taskDisplayer">
-      <Suspense>
-        <SimpleTask handleCheckbox={handleCheckbox}/>
-      </Suspense>
-    </ul>
+    <>
+      <ul className="taskDisplayer">
+        <Suspense>
+          <SimpleTask />
+        </Suspense>
+      </ul>
+      <progress value={tasksChecked} max={taskArray.length} className="taskProgress"/>
+      <p>{tasksChecked}/{taskArray.length} tasks completed</p>
+    </>
   )
 }
 

@@ -21,7 +21,7 @@
 }
 
 .taskChecked {
-    background-color: rgb(0, 224, 11);
+    background-color: #00e00b;
     opacity: .7;
 
     p {
@@ -47,6 +47,13 @@
 .midPrio {
     font-weight: bold;
     color: darkorange;
+}
+
+.taskProgress {
+    margin-top: 10px;
+    width: 12rem;
+    height: 1rem;
+    background: #00e00b;
 }
 
 @media (min-width: 1000px){

@@ -8,7 +8,6 @@
 }
 
 header {
-    font-size: 1.5rem;
     letter-spacing: 2px;
     height: $headerHeight;
     padding: 2vh;
@@ -18,8 +17,17 @@ header {
     color: #fff;
 }
 
-h1 {
+h2, h1 {
     text-align: center
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: lighter
 }
 
 #root {

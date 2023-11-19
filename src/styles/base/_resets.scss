@@ -24,5 +24,8 @@ button {
     outline: none;
     border: none;
     background: none;
+}
+
+button, input[type="submit"], input[type="checkbox"]{
     cursor: pointer;
 }

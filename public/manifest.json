@@ -1,5 +1,5 @@
 {  
-    "name": "TASKIT!",  
+    "name": "TASKIT! - Todo list app",  
     "short_name": "TASKIT!",  
     "display": "browser", 
     "orientation": "portrait"

@@ -1,12 +1,9 @@
 import useTasksData from "../../hooks/useTaskData"
 import '../../styles/components/_displaytask.scss'
 import DeleteTaskModal from "./DeleteTaskModal"
+import TaskCheckbox from "./TaskCheckbox";
 
-type Props = {
-  handleCheckbox: (index: number) => void
-}
-
-const SimpleTask: React.FC<Props> = ({handleCheckbox}) => {
+const SimpleTask = () => {
   const useTaskValue = useTasksData();
   const {taskArray} = useTaskValue;
 
@@ -34,17 +31,8 @@ const SimpleTask: React.FC<Props> = ({handleCheckbox}) => {
             </div>
 
             <div className="rightContainer">
-              <label>
-                <input 
-                  type="checkbox" 
-                  id={`checkTask ${index}`}
-                  defaultChecked={task.isChecked}
-                  onClick={() => {handleCheckbox(index)
-                  }}
-                />
-              </label>
-        
-              <DeleteTaskModal index={index}/>
+              <TaskCheckbox index={index} task={task}/>
+              <DeleteTaskModal index={index} task={task}/>
             </div>
           </li>
         )

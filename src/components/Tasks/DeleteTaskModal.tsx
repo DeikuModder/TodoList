@@ -5,8 +5,9 @@ import useTasksData from "../../hooks/useTaskData";
 import { useState } from "react";
 import '../../styles/components/_deletetaskmodal.scss'
 import { createPortal } from "react-dom";
+import SimpleTask from "../../classes/SimpleTask";
 
-const DeleteTaskModal = ({ index }: {index: number}) => {
+const DeleteTaskModal = ({ index, task }: {index: number, task: SimpleTasks}) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
 
   return (
@@ -15,7 +16,7 @@ const DeleteTaskModal = ({ index }: {index: number}) => {
             showDeleteModal ?
             (
                 createPortal(
-                    <DeleteTask index={index} onClose={setShowDeleteModal}/>,
+                    <DeleteTask index={index} task={task} onClose={setShowDeleteModal}/>,
                     document.getElementById('modal')!
                 )
             )
@@ -32,14 +33,16 @@ const DeleteTaskModal = ({ index }: {index: number}) => {
 
 type Props = {
     index: number
-    onClose: React.Dispatch<React.SetStateAction<boolean>>
+    onClose: React.Dispatch<React.SetStateAction<boolean>>,
+    task: SimpleTask
 }
 
-const DeleteTask: React.FC<Props> = ({ index, onClose }) => {
+const DeleteTask: React.FC<Props> = ({ index, onClose, task }) => {
     const useTaskValue = useTasksData();
-    const {taskArray, setTaskArray} = useTaskValue;
+    const {taskArray, setTaskArray, tasksChecked, setTasksChecked } = useTaskValue;
 
     const handleDelete = (index: number) => {
+        task.isChecked && setTasksChecked(tasksChecked - 1);
         const filteredArr: SimpleTasks[] = [...taskArray]
     
         filteredArr.splice(index, 1)
@@ -59,7 +62,10 @@ const DeleteTask: React.FC<Props> = ({ index, onClose }) => {
                 </p>
 
                 <div className="btnContainer">
-                    <button onClick={() => handleDelete(index)} className="deleteBtn">
+                    <button 
+                        onClick={() => handleDelete(index)} 
+                        className="deleteBtn"
+                    >
                         Delete
                     </button>
 

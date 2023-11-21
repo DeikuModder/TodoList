@@ -5,7 +5,7 @@ import useTasksData from "../../hooks/useTaskData";
 
 const DisplayTask = () => {
   const useTaskValue = useTasksData();
-  const {taskArray, tasksChecked} = useTaskValue;
+  const { taskArray, tasksChecked } = useTaskValue;
 
   return (
     <>

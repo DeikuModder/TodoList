@@ -1,7 +1,8 @@
 import useTasksData from "../../hooks/useTaskData"
 import '../../styles/components/_displaytask.scss'
-import DeleteTaskModal from "./DeleteTaskModal"
-import TaskCheckbox from "./TaskCheckbox";
+import DeleteTaskModal from "./TaskFunctions/DeleteTaskModal"
+import EditTask from "./TaskFunctions/EditTask";
+import TaskCheckbox from "./TaskFunctions/TaskCheckbox";
 
 const SimpleTask = () => {
   const useTaskValue = useTasksData();
@@ -32,7 +33,10 @@ const SimpleTask = () => {
 
             <div className="rightContainer">
               <TaskCheckbox index={index} task={task}/>
-              <DeleteTaskModal index={index} task={task}/>
+              <div>
+                <EditTask index={index}/>
+                <DeleteTaskModal index={index} task={task}/>
+              </div>
             </div>
           </li>
         )

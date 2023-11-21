@@ -5,7 +5,7 @@
 }
 
 .taskDisplayer {
-    width: 100%;
+    min-width: 320px;
     height: 90%;
     padding: 2vh;
     @include grayBorder;
@@ -37,6 +37,15 @@
     width: 30%;
     @include flexBox(space-evenly, flex-end);
     height: 100%;
+
+    div {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+.taskButtons {
+    font-size: 18px;
 }
 
 .highPrio {
@@ -56,8 +65,8 @@
     background: #00e00b;
 }
 
-@media (min-width: 1000px){
+@media (min-width: 1040px) {
     .taskDisplayer {
-        width: 40%;
+        min-width: 40%;
     }
 }

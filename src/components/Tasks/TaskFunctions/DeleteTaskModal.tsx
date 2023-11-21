@@ -1,11 +1,11 @@
 import { faTrashRestoreAlt } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import SimpleTasks from "../../classes/types"
-import useTasksData from "../../hooks/useTaskData";
+import SimpleTasks from "../../../classes/types"
+import useTasksData from "../../../hooks/useTaskData";
 import { useState } from "react";
-import '../../styles/components/_deletetaskmodal.scss'
+import '../../../styles/components/_deletetaskmodal.scss'
 import { createPortal } from "react-dom";
-import SimpleTask from "../../classes/SimpleTask";
+import SimpleTask from "../../../classes/SimpleTask";
 
 const DeleteTaskModal = ({ index, task }: {index: number, task: SimpleTasks}) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -22,7 +22,7 @@ const DeleteTaskModal = ({ index, task }: {index: number, task: SimpleTasks}) =>
             )
             :
             (
-                <button onClick={() => setShowDeleteModal(true)}>
+                <button onClick={() => setShowDeleteModal(true)} className="taskButtons">
                     <FontAwesomeIcon icon={faTrashRestoreAlt}/>
                 </button>
             )
@@ -43,6 +43,7 @@ const DeleteTask: React.FC<Props> = ({ index, onClose, task }) => {
 
     const handleDelete = (index: number) => {
         task.isChecked && setTasksChecked(tasksChecked - 1);
+        tasksChecked < 0 && setTasksChecked(0)
         const filteredArr: SimpleTasks[] = [...taskArray]
     
         filteredArr.splice(index, 1)

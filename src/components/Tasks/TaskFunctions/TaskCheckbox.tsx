@@ -1,5 +1,5 @@
-import SimpleTasks from "../../classes/types";
-import useTasksData from "../../hooks/useTaskData";
+import SimpleTasks from "../../../classes/types";
+import useTasksData from "../../../hooks/useTaskData";
 
 type Props = {
     index: number,
@@ -15,6 +15,8 @@ const TaskCheckbox: React.FC<Props> = ({ index, task }) => {
       taskArrayWithChecked[index].isChecked = !taskArrayWithChecked[index].isChecked
 
       taskArrayWithChecked[index].isChecked ? setTasksChecked(tasksChecked + 1) : setTasksChecked(tasksChecked - 1)
+
+      tasksChecked < 0 && setTasksChecked(0)
   
       setTaskArray([
         ...taskArrayWithChecked
@@ -30,6 +32,7 @@ const TaskCheckbox: React.FC<Props> = ({ index, task }) => {
           defaultChecked={task.isChecked}
           onClick={() => {handleCheckbox(index)
           }}
+          className="taskButtons"
         />
     </label>
   )

@@ -90,7 +90,7 @@ const ModalContent: React.FC<ContentProps> = ({ onClose }) => {
                 
               <input type='submit' value='Create task' className="submitBtn"/>
             </form>
-            </div>  
+          </div>  
         </div>
       </div>
     )
